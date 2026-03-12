@@ -4,6 +4,9 @@ title: Projects
 permalink: /projects/
 ---
 
-## Projects
+# Projects
 
-- [Habit Tracker](/projects/habit-tracker) — A local-first habit tracking app built with LangGraph.
+## Habit Tracker
+A local-first application for habit logging, bottle pickup tracking, dashboard analytics, and future camera-based event detection.
+
+[Open project page](/projects/habit-tracker/)
