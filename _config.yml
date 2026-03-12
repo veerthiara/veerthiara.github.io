@@ -1,0 +1,19 @@
+title: veerthiara.github.io
+description: My portfolio and learning blog
+author: veerthiara
+theme: minima
+
+url: "https://veerthiara.github.io"
+
+navigation:
+  - title: Home
+    url: /
+  - title: About
+    url: /about
+  - title: Projects
+    url: /projects
+  - title: Blog
+    url: /blog
+
+plugins:
+  - jekyll-feed
