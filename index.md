@@ -1,6 +1,7 @@
 ---
+title: Home
 layout: home
-title: Veer Thiara
+nav_order: 1
 ---
 
 # Veer Thiara
