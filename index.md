@@ -1,12 +1,25 @@
 ---
 layout: home
-title: Home
+title: Veer Thiara
 ---
 
-Welcome to my portfolio and learning blog. I document my projects, architecture decisions, and learning journey in AI, LangChain, LangGraph, full-stack engineering, and local-first systems.
+# Veer Thiara
+
+Senior software engineer documenting my journey from full-stack engineering into AI application development.
+
+I am building real projects to learn LangChain, LangGraph, structured data systems, and local-first AI architecture.
 
 ## Featured Project
+### Habit Tracker
+A local-first habit tracker focused on bottle pickup tracking, manual habit logging, dashboard analytics, and future camera-based event detection.
 
-- [Habit Tracker](/projects/habit-tracker)
+[Read the project overview](/projects/habit-tracker/)
 
-## Latest Posts
+## Current focus
+- LangChain and LangGraph
+- FastAPI + React systems
+- Postgres + pgvector
+- Product-first AI architecture
+
+## Latest posts
+- Coming soon
