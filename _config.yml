@@ -1,19 +1,14 @@
-title: veerthiara.github.io
-description: My portfolio and learning blog
-author: veerthiara
-theme: minima
+title: Veer Thiara
+description: Portfolio, project documentation, and learning journey
+remote_theme: just-the-docs/just-the-docs
 
-url: "https://veerthiara.github.io"
+url: https://veerthiara.github.io
 
-navigation:
-  - title: Home
-    url: /
-  - title: About
-    url: /about
-  - title: Projects
-    url: /projects
-  - title: Blog
-    url: /blog
+color_scheme: dark
+search_enabled: true
 
-plugins:
-  - jekyll-feed
+aux_links:
+  GitHub:
+    - https://github.com/veerthiara
+
+nav_sort: case_insensitive
