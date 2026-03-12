@@ -1,7 +1,8 @@
 ---
-layout: page
-title: Habit Tracker
-permalink: /projects/habit-tracker/
+title: Overview
+parent: Projects
+grand_parent: 
+nav_order: 1
 ---
 
 # Habit Tracker
