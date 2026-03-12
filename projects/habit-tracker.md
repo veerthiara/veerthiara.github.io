@@ -6,26 +6,38 @@ permalink: /projects/habit-tracker/
 
 # Habit Tracker
 
-A local-first habit tracking application with AI-powered daily summaries, built with LangGraph and Jekyll.
+## System Overview
 
-## Status
+### Goal
+Build a local-first habit tracker focused on bottle pickup tracking, habit logging, dashboard analytics, and later camera-based event detection.
 
-🚧 In progress
+### Main parts
+- Frontend: React app for dashboard, logging, and chat
+- Backend: FastAPI for APIs, business logic, and AI endpoints
+- Database: Postgres as source of truth
+- Vector store: pgvector inside Postgres for embeddings
+- AI orchestration: LangGraph for multi-step AI flows
+- Future vision service: separate local service for camera/YOLO-based event detection
 
-## Goals
+### Product direction
+The app is product-first, not RAG-first.
 
-- Track daily habits with a simple yes/no log
-- View streaks and completion rates
-- Generate AI-powered daily summaries using LangGraph
+The main data is structured application data:
+- habits
+- habit logs
+- bottle events
+- notes
 
-## Tech Stack
+Later, AI and vision features will build on top of this data.
 
-- **LangGraph** — AI workflow orchestration
-- **LangChain** — LLM integration
-- **Local storage** — no cloud dependency
+### Initial MVP
+- manual habit logging
+- bottle pickup logging
+- dashboard summaries
+- basic AI chat over structured data
 
-## Blog Posts
-
-- [Starting My Habit Tracker](/2026/03/12/starting-my-habit-tracker)
-- [Why I Chose LangGraph](/2026/03/14/why-i-chose-langgraph)
-- [Structuring the MVP](/2026/03/16/structuring-the-mvp)
+### Future scope
+- semantic retrieval over notes
+- thread-based AI assistant
+- vision events from camera
+- posture tracking
