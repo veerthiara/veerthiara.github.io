@@ -1,6 +1,8 @@
 ---
 title: Architecture
-layout: architecture
-parent: projects
+parent: Projects
+grand_parent: 
+
 nav_order: 2
 ---
+## Architecture
