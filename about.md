@@ -1,7 +1,7 @@
 ---
-layout: page
 title: About
-permalink: /about/
+layout: about
+nav_order: 3
 ---
 
 I'm veerthiara — a developer exploring AI, LangChain, LangGraph, full-stack engineering, and local-first systems.
