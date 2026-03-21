@@ -328,6 +328,7 @@ function htmlDoc({ title, currentUrl, body, currentItem }) {
             <div class="search-shell">
               <span class="nav-icon search-inline-icon" aria-hidden="true">${iconSvg("search")}</span>
               <input id="site-search-input" class="search-input" type="search" placeholder="Search" autocomplete="off">
+              <div id="site-search-results" class="search-results" hidden></div>
             </div>
           </div>
           ${renderGroup((page) => page.data.title !== "Blog", "Explore")}
