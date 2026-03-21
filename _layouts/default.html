@@ -12,7 +12,7 @@
     <script defer src="{{ '/assets/js/site.js' | relative_url }}"></script>
   </head>
   <body>
-    {% assign top_nav_pages = site.html_pages | where_exp: "item", "item.nav_order and item.parent == nil" | sort: "nav_order" %}
+    {% assign top_nav_pages = site.html_pages | sort: "nav_order" %}
     {% assign current_parent_page = nil %}
     {% assign current_grandparent_page = nil %}
     {% assign current_great_grandparent_page = nil %}
@@ -86,7 +86,7 @@
             <p class="sidebar-label">Explore</p>
             <nav class="side-nav" aria-label="Primary navigation">
               {% for nav_page in top_nav_pages %}
-                {% if nav_page.title != 'Blog' %}
+                {% if nav_page.nav_order and nav_page.parent == blank and nav_page.title != 'Blog' %}
                   {% assign nav_children = site.html_pages | where: "parent", nav_page.title | sort: "nav_order" %}
                   {% assign has_children = false %}
                   {% if nav_children.size > 0 %}
@@ -150,7 +150,7 @@
             <p class="sidebar-label">Technical Logs</p>
             <nav class="side-nav" aria-label="Technical logs navigation">
               {% for nav_page in top_nav_pages %}
-                {% if nav_page.title == 'Blog' %}
+                {% if nav_page.nav_order and nav_page.parent == blank and nav_page.title == 'Blog' %}
                   {% assign nav_children = site.html_pages | where: "parent", nav_page.title | sort: "nav_order" %}
                   {% assign has_posts = false %}
                   {% if site.posts.size > 0 %}
