@@ -1,0 +1,30 @@
+{% case include.name %}
+  {% when 'search' %}
+    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="8.5" cy="8.5" r="5.5"></circle>
+      <path d="M12.5 12.5L17 17"></path>
+    </svg>
+  {% when 'home' %}
+    <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+      <path d="M10 2.8L17 8.6V17H12.2V12H7.8V17H3V8.6L10 2.8Z"></path>
+    </svg>
+  {% when 'projects' %}
+    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="2.5" y="3" width="5" height="5" rx="1"></rect>
+      <rect x="12.5" y="3" width="5" height="5" rx="1"></rect>
+      <rect x="12.5" y="12" width="5" height="5" rx="1"></rect>
+      <path d="M7.5 5.5H10.5V14.5"></path>
+      <path d="M10.5 14.5H12.5"></path>
+    </svg>
+  {% when 'person' %}
+    <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+      <path d="M10 10.2C12.2 10.2 14 8.4 14 6.2C14 4 12.2 2.2 10 2.2C7.8 2.2 6 4 6 6.2C6 8.4 7.8 10.2 10 10.2Z"></path>
+      <path d="M4.1 17.8C4.4 14.9 6.8 12.8 9.8 12.8H10.2C13.2 12.8 15.6 14.9 15.9 17.8V18H4.1V17.8Z"></path>
+    </svg>
+  {% when 'terminal' %}
+    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="2.5" y="3" width="15" height="14" rx="2"></rect>
+      <path d="M6 8L8.8 10.5L6 13"></path>
+      <path d="M10.8 13H14"></path>
+    </svg>
+{% endcase %}

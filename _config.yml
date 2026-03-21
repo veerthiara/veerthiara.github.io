@@ -1,14 +1,28 @@
 title: Veer Thiara
 description: Portfolio, project documentation, and learning journey
-remote_theme: just-the-docs/just-the-docs
-
 url: https://veerthiara.github.io
+baseurl: ""
+markdown: kramdown
+permalink: pretty
+exclude:
+  - README.md
+  - DEVELOPER_NOTES.md
+  - FIRST_TIME_PORTFOLIO_GUIDE.md
+  - node_modules
+  - vendor
+  - scripts
+  - package.json
+  - package-lock.json
+  - Gemfile
 
-color_scheme: dark
-search_enabled: true
-
-aux_links:
-  GitHub:
-    - https://github.com/veerthiara
-
-nav_sort: case_insensitive
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: page
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post

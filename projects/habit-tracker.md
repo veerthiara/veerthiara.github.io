@@ -1,8 +1,9 @@
 ---
-title: Overview
+title: Habit Tracker
 parent: Projects
 grand_parent: 
 nav_order: 1
+show_title: false
 ---
 
 # Habit Tracker

@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<section class="content-panel">
+  {% unless page.show_title == false %}
+    <p class="eyebrow">Portal</p>
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}
+      <p class="lead">{{ page.description }}</p>
+    {% endif %}
+  {% endunless %}
+  <div class="page-content">
+    {{ content }}
+  </div>
+</section>

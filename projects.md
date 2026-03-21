@@ -2,11 +2,14 @@
 title: Projects
 nav_order: 2
 has_children: true
+description: Ongoing builds, architecture notes, and implementation direction.
 ---
 
-# Projects
+{% assign project_children = site.html_pages | where: "parent", "Projects" | sort: "nav_order" %}
 
-## Habit Tracker
-A local-first application for habit logging, bottle pickup tracking, dashboard analytics, and future camera-based event detection.
+{% for project in project_children %}
+## {{ project.title }}
+{{ project.content | markdownify | strip_html | truncate: 180 }}
 
-[Open project page](/projects/habit-tracker/)
+[Open project page]({{ project.url | relative_url }})
+{% endfor %}

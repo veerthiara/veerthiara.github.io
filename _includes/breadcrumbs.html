@@ -1,0 +1,26 @@
+{% assign crumb_parent = nil %}
+{% assign crumb_grandparent = nil %}
+
+{% if page.collection == 'posts' %}
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="{{ '/blog/' | relative_url }}">Blog</a>
+    <span>/</span>
+    <span aria-current="page">{{ page.title }}</span>
+  </nav>
+{% elsif page.parent %}
+  {% assign crumb_parent = site.html_pages | where: "title", page.parent | first %}
+  {% if crumb_parent and crumb_parent.parent %}
+    {% assign crumb_grandparent = site.html_pages | where: "title", crumb_parent.parent | first %}
+  {% endif %}
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    {% if crumb_grandparent %}
+      <a href="{{ crumb_grandparent.url | relative_url }}">{{ crumb_grandparent.title }}</a>
+      <span>/</span>
+    {% endif %}
+    {% if crumb_parent %}
+      <a href="{{ crumb_parent.url | relative_url }}">{{ crumb_parent.title }}</a>
+      <span>/</span>
+    {% endif %}
+    <span aria-current="page">{{ page.title }}</span>
+  </nav>
+{% endif %}
