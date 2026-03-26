@@ -6,16 +6,23 @@ const projectCards = [
   {
     title: "Habit Tracker",
     href: "/projects/habit-tracker/",
-    body: "Local-first habit tracking with structured product data, AI-assisted summaries, and a path toward vision-based events."
+    body: "Local-first habit tracking with structured product data, AI-assisted summaries, and a path toward vision-based events.",
+    tone: "mint"
   },
   {
     title: "Engineering Notes",
     href: "/blog/",
-    body: "Working notes on MVP scoping, orchestration choices, and how current projects are being shaped over time."
+    body: "Working notes on MVP scoping, orchestration choices, and how current projects are being shaped over time.",
+    tone: "amber"
   }
 ];
 
 const stack = ["Python", "LangGraph", "FastAPI", "React", "Postgres", "Astro"];
+const signalCards = [
+  { label: "Current focus", value: "Docs-first product builds" },
+  { label: "Mode", value: "Architecture and implementation" },
+  { label: "Next layer", value: "Scroll-driven landing interactions" }
+];
 ---
 
 <MarketingLayout
@@ -26,6 +33,9 @@ const stack = ["Python", "LangGraph", "FastAPI", "React", "Postgres", "Astro"];
     <div class="marketing-background">
       <span class="marketing-glow marketing-glow-a"></span>
       <span class="marketing-glow marketing-glow-b"></span>
+      <span class="marketing-glow marketing-glow-c"></span>
+      <span class="marketing-aurora marketing-aurora-a"></span>
+      <span class="marketing-aurora marketing-aurora-b"></span>
       <span class="marketing-grid"></span>
     </div>
 
@@ -69,16 +79,46 @@ const stack = ["Python", "LangGraph", "FastAPI", "React", "Postgres", "Astro"];
           <ul class="hero-stack" aria-label="Current stack">
             {stack.map((item) => <li>{item}</li>)}
           </ul>
+
+          <div class="hero-signal-grid">
+            {signalCards.map((card) => (
+              <div class="hero-signal-card">
+                <span>{card.label}</span>
+                <strong>{card.value}</strong>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div class="hero-panel" aria-hidden="true">
-          <div class="hero-panel-window">
-            <div class="window-dots">
-              <span></span>
-              <span></span>
-              <span></span>
+          <div class="hero-visual">
+            <div class="hero-orbit">
+              <span class="hero-orbit-ring hero-orbit-ring-a"></span>
+              <span class="hero-orbit-ring hero-orbit-ring-b"></span>
+              <span class="hero-orbit-ring hero-orbit-ring-c"></span>
+              <span class="hero-orbit-core"></span>
+              <span class="hero-orbit-node hero-orbit-node-a"></span>
+              <span class="hero-orbit-node hero-orbit-node-b"></span>
+              <span class="hero-orbit-node hero-orbit-node-c"></span>
             </div>
-            <pre><code>{`async function shipUsefulSoftware() {
+
+            <div class="hero-floating-card hero-floating-card-a">
+              <span>Active lane</span>
+              <strong>Projects → docs → notes</strong>
+            </div>
+
+            <div class="hero-floating-card hero-floating-card-b">
+              <span>System state</span>
+              <strong>Shipping, then polishing</strong>
+            </div>
+
+            <div class="hero-panel-window">
+              <div class="window-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <pre><code>{`async function shipUsefulSoftware() {
   const focus = ["projects", "docs", "notes"];
   const approach = "build-first";
   const systems = await orchestrate({
@@ -89,7 +129,16 @@ const stack = ["Python", "LangGraph", "FastAPI", "React", "Postgres", "Astro"];
 
   return { focus, approach, systems };
 }`}</code></pre>
+            </div>
           </div>
+        </div>
+      </section>
+
+      <section class="motion-strip" aria-label="Animated technology strip">
+        <div class="motion-strip-track">
+          {[...stack, "AI Systems", "Local First", "Engineering Notes", "Developer Portal", ...stack].map((item) => (
+            <span>{item}</span>
+          ))}
         </div>
       </section>
 
@@ -105,7 +154,7 @@ const stack = ["Python", "LangGraph", "FastAPI", "React", "Postgres", "Astro"];
 
         <div class="card-grid">
           {projectCards.map((card) => (
-            <a class="feature-card" href={card.href}>
+            <a class:list={["feature-card", `feature-card-${card.tone}`]} href={card.href}>
               <span class="feature-card-label">Open</span>
               <strong>{card.title}</strong>
               <p>{card.body}</p>
