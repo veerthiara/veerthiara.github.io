@@ -1,0 +1,129 @@
+---
+import MarketingLayout from "../layouts/MarketingLayout.astro";
+import "../styles/global.css";
+
+const projectCards = [
+  {
+    title: "Habit Tracker",
+    href: "/projects/habit-tracker/",
+    body: "Local-first habit tracking with structured product data, AI-assisted summaries, and a path toward vision-based events."
+  },
+  {
+    title: "Engineering Notes",
+    href: "/blog/",
+    body: "Working notes on MVP scoping, orchestration choices, and how current projects are being shaped over time."
+  }
+];
+
+const stack = ["Python", "LangGraph", "FastAPI", "React", "Postgres", "Astro"];
+---
+
+<MarketingLayout
+  title="Veer Thiara | Developer Portfolio"
+  description="Developer portfolio, current projects, and engineering notes."
+>
+  <div class="marketing-shell">
+    <div class="marketing-background">
+      <span class="marketing-glow marketing-glow-a"></span>
+      <span class="marketing-glow marketing-glow-b"></span>
+      <span class="marketing-grid"></span>
+    </div>
+
+    <header class="marketing-header">
+      <a class="marketing-brand" href="/">
+        <span class="marketing-brand-mark">VT</span>
+        <span class="marketing-brand-copy">
+          <strong>Veer Thiara</strong>
+          <small>Developer portfolio</small>
+        </span>
+      </a>
+
+      <nav class="marketing-nav" aria-label="Primary">
+        <a href="/projects/">Projects</a>
+        <a href="/blog/">Blog</a>
+        <a href="/about/">About</a>
+        <a href="https://www.linkedin.com/in/veerthiara/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </nav>
+    </header>
+
+    <main class="marketing-main">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="hero-eyebrow">Engineering portal</p>
+          <h1>
+            Building
+            <span>practical software</span>,
+            AI systems,
+            and product-first developer tools.
+          </h1>
+          <p class="hero-lead">
+            A docs-driven portfolio built around current work, implementation details,
+            architecture notes, and future project growth.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button-primary" href="/projects/">Explore Projects</a>
+            <a class="button-secondary" href="/blog/">Read Notes</a>
+          </div>
+
+          <ul class="hero-stack" aria-label="Current stack">
+            {stack.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+
+        <div class="hero-panel" aria-hidden="true">
+          <div class="hero-panel-window">
+            <div class="window-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <pre><code>{`async function shipUsefulSoftware() {
+  const focus = ["projects", "docs", "notes"];
+  const approach = "build-first";
+  const systems = await orchestrate({
+    backend: "FastAPI",
+    ai: "LangGraph",
+    storage: "Postgres"
+  });
+
+  return { focus, approach, systems };
+}`}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-grid">
+        <div class="section-intro">
+          <p class="section-label">Current Direction</p>
+          <h2>Readable project documentation that can keep growing.</h2>
+          <p>
+            The portfolio is being rebuilt around a cleaner content system so new projects,
+            architecture notes, and deeper implementation pages are easier to add later.
+          </p>
+        </div>
+
+        <div class="card-grid">
+          {projectCards.map((card) => (
+            <a class="feature-card" href={card.href}>
+              <span class="feature-card-label">Open</span>
+              <strong>{card.title}</strong>
+              <p>{card.body}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section class="scroll-teaser">
+        <div>
+          <p class="section-label">Later Upgrade Path</p>
+          <h2>Homepage motion can become a proper scroll story later.</h2>
+          <p>
+            This landing page is intentionally structured so a pinned GSAP sequence can be added
+            later without redoing the docs or content architecture.
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+</MarketingLayout>

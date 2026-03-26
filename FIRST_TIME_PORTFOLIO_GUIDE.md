@@ -1,162 +1,131 @@
 # First-Time Portfolio Guide
 
-This file explains the repo in plain English for someone modifying a personal Jekyll portfolio for the first time.
+This file explains the repo in plain English for someone modifying an Astro portfolio for the first time.
 
 ## Big picture
 
-This site is no longer just the plain default GitHub Pages theme.
+This site now has two parts:
 
-It now has:
-- custom layouts
-- custom CSS
-- custom JavaScript for sidebar collapse and search
-- a small local preview server so you can test changes without relying on GitHub Pages
+- a custom Astro landing page at `/`
+- Starlight-powered docs pages for projects and blog notes
 
-## What is Jekyll here?
+That means the homepage is fully custom, while the project and blog sections get docs-style navigation and search.
 
-Jekyll is the static site generator GitHub Pages uses to turn Markdown files into HTML pages.
+## What is Astro?
 
-In this repo:
-- `about.md`, `projects.md`, `blog.md`, and files in `projects/` and `_posts/` are the content
-- files in `_layouts/` define the page structure
-- files in `_includes/` are reusable layout fragments
-- `assets/css/style.css` defines the look
-- `assets/js/site.js` adds search and collapsible sidebar behavior
-
-## What is the Gemfile?
-
-`Gemfile` is a Ruby dependency file.
-
-It tells Ruby/Bundler which gems would be needed for a local Jekyll setup.
+Astro is the site framework now used in this repo.
 
 In simple terms:
-- Jekyll itself is a Ruby tool
-- the `Gemfile` is how Ruby projects list their packages
 
-For your day-to-day content edits, you usually do not need to touch `Gemfile`.
+- Astro builds static HTML pages
+- you can create custom pages with `.astro` files
+- it also works well with Markdown content
 
-## What is the vendor folder?
+## What is Starlight?
 
-`vendor/` is usually where locally installed dependencies can end up.
+Starlight is the docs layer built on top of Astro.
 
-For this repo, it is not part of the site content itself.
-It is just support material for local tooling if Bundler installs gems there.
+It handles:
 
-You generally do not edit `vendor/`.
+- sidebar navigation
+- search
+- docs page layout
+- project and blog content structure
 
-## What is scripts/preview.mjs?
+## Most important files now
 
-`scripts/preview.mjs` is a small local preview server written in Node.js.
+`astro.config.mjs`
+- Main Astro and Starlight configuration
+- controls site title, sidebar groups, social links, and docs behavior
 
-Its role:
-- read your Markdown files
-- render them into HTML locally
-- serve the site on `http://127.0.0.1:4000`
+`src/pages/index.astro`
+- custom landing page
 
-This lets you preview the site even if local Jekyll setup is inconvenient.
+`src/pages/about.astro`
+- custom About page
 
-## What does .mjs mean?
+`src/content/docs/projects/`
+- project documentation pages
 
-`.mjs` means it is a JavaScript module file for Node.js.
+`src/content/docs/blog/`
+- blog and engineering note pages
 
-You can think of it as:
-- still JavaScript
-- just using the modern module system (`import ... from ...`)
+`src/styles/global.css`
+- main styling for both the landing page and Starlight theme overrides
 
-It is not a special site format. It is just the preview script.
+`.github/workflows/deploy.yml`
+- GitHub Pages deployment
 
-## What should you edit most often?
+## How to add a new project
 
-Most common files:
-
-`about.md`
-- About page content
-
-`projects/`
-- individual project pages
-
-`_posts/`
-- blog posts
-
-`assets/css/style.css`
-- theme, colors, spacing, layout styling
-
-`_layouts/default.html`
-- sidebar, header, search bar, overall shell
-
-`_layouts/home.html`
-- homepage content and homepage visual sections
-
-## How the sidebar works now
-
-Top-level items come from pages like:
-- Home
-- Projects
-- About
-- Blog
-
-Child pages come from front matter.
+Create a new Markdown file inside `src/content/docs/projects/`.
 
 Example:
 
-```yaml
-title: Habit Tracker
-parent: Projects
-nav_order: 1
-```
+`src/content/docs/projects/my-new-project.md`
 
-If later you add a child under that project:
+Use frontmatter like:
 
 ```yaml
-title: API Design
-parent: Habit Tracker
-nav_order: 2
+---
+title: My New Project
+description: Short summary of the project.
+editUrl: false
+head: []
+template: doc
+sidebar:
+  hidden: false
+  attrs: {}
+pagefind: true
+draft: false
+---
 ```
 
-it will appear nested under Habit Tracker automatically.
+Then write the content below it in Markdown.
 
-Blog posts are shown automatically under Blog.
+## How to add a new blog post
 
-## How search works
+Create a Markdown file inside `src/content/docs/blog/`.
 
-Search is client-side.
+Use the same frontmatter shape as the project docs and change the title and description.
 
-That means:
-- there is no database
-- there is no backend search service
-- the browser searches through a JSON list of site pages and posts
+## How the sidebar works
 
-The search logic lives in `assets/js/site.js`.
+The Starlight sidebar is configured in `astro.config.mjs`.
+
+Right now:
+
+- `Projects` autogenerates from `src/content/docs/projects/`
+- `Blog` autogenerates from `src/content/docs/blog/`
+
+So if you add a new file in one of those folders, it will appear in the sidebar automatically.
 
 ## How to preview locally
 
-Recommended local workflow:
+This repo expects Node 22.
 
-1. `npm install`
-2. `npm run preview`
-3. open `http://127.0.0.1:4000`
+Recommended workflow:
 
-## What to ignore
+1. `nvm use`
+2. `npm install`
+3. `npm run dev`
 
-Usually do not worry about:
-- `vendor/`
-- `node_modules/`
-- Bundler internals
+If `nvm use` does not work yet, install Node 22 first.
 
-Focus on:
-- Markdown content
-- `_layouts/`
-- `_includes/`
-- `assets/css/style.css`
-- `assets/js/site.js`
+## What .nvmrc means
 
-## If you want the simplest mental model
+`.nvmrc` is a tiny file that tells `nvm` which Node version this repo expects.
+
+Here it is set to:
+
+`22`
+
+## Simplest mental model
 
 Think of the repo like this:
 
-- Markdown files = your writing and project content
-- `_layouts/` = page skeletons
-- `_includes/` = reusable layout pieces
-- `style.css` = visual design
-- `site.js` = interactions
-- `preview.mjs` = local test server
+- `src/pages/` = custom website pages
+- `src/content/docs/` = your long-term content
+- `astro.config.mjs` = site settings
+- `global.css` = site look and feel
+- GitHub Action = deployment

@@ -1,29 +1,36 @@
 # veerthiara.github.io
 
-My portfolio and learning blog.
+Portfolio site rebuilt with Astro and Starlight.
 
-This site documents my projects, architecture decisions, and learning journey in AI, LangChain, LangGraph, full-stack engineering, and local-first systems.
+## Stack
 
-## Featured project
-- Habit Tracker
+- Astro
+- Starlight
+- Markdown docs content
+- GitHub Actions deployment to GitHub Pages
 
-## Site sections
-- Home
-- About
-- Projects
-- Blog
+## Site structure
 
-## Built with
-- GitHub Pages
-- Jekyll
-- Markdown
-- Local Node preview script for development
+- `/` is a custom landing page
+- `/projects/` is docs-style project navigation
+- `/blog/` is docs-style engineering notes
+- `/about/` is a custom Astro page
 
-## Local preview
-- Run `npm install` once
-- Run `npm run preview`
-- Open `http://127.0.0.1:4000`
+## Local development
+
+This repo now expects Node 22.
+
+Recommended:
+
+1. `nvm use`
+2. `npm install`
+3. `npm run dev`
+
+Then open the local Astro dev URL shown in the terminal.
+
+If you do not use `nvm`, install Node 22 manually first.
 
 ## Editing
-- Read [DEVELOPER_NOTES.md](/Users/veerthiara/Documents/Learning/veerthiara.github.io/DEVELOPER_NOTES.md) before making layout or theme changes
-- Read [FIRST_TIME_PORTFOLIO_GUIDE.md](/Users/veerthiara/Documents/Learning/veerthiara.github.io/FIRST_TIME_PORTFOLIO_GUIDE.md) if you want a plain-English explanation of how this repo works
+
+- Read [DEVELOPER_NOTES.md](/Users/veerthiara/Documents/Learning/veerthiara.github.io/DEVELOPER_NOTES.md)
+- Read [FIRST_TIME_PORTFOLIO_GUIDE.md](/Users/veerthiara/Documents/Learning/veerthiara.github.io/FIRST_TIME_PORTFOLIO_GUIDE.md)

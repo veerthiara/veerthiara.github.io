@@ -1,108 +1,103 @@
 # Developer Notes
 
-This repo is intentionally small. The goal is to keep edits obvious even if you only touch it occasionally.
+This repo has been migrated from Jekyll to Astro + Starlight.
 
-## Where to edit things
+## Core structure
 
-`_layouts/default.html`
-- Controls the overall shell.
-- Edit this if you want to change the sidebar structure, brand block, or workspace header.
+`src/pages/index.astro`
+- custom landing page
+- this is where future scroll-based animation work should happen
 
-`_layouts/home.html`
-- Controls the homepage hero, focus cards, and latest posts section.
-- Edit this when you want to change the landing page messaging.
+`src/pages/about.astro`
+- custom About page
 
-`_layouts/page.html`
-- Controls the wrapper used by normal pages like About, Projects, and Blog.
+`src/content/docs/projects/`
+- project documentation pages used by Starlight
 
-`_layouts/post.html`
-- Controls blog post pages.
+`src/content/docs/blog/`
+- engineering note pages used by Starlight
 
-`assets/css/style.css`
-- Main theme file.
-- Search for `.side-nav a[aria-current="page"]` to change the active sidebar color.
-- Search for `.nav-toggle` to adjust the collapse button look.
-- Search for `body {` to change the overall dark theme palette.
-- Search for `.content-panel` to change card look and spacing.
-- Search for `.hero-panel`, `.hero-glow`, and `.ambient` to tune homepage motion and color.
+`src/styles/global.css`
+- homepage styling
+- shared visual direction
+- Starlight color overrides
 
-`assets/js/site.js`
-- Handles collapsible sidebar groups.
-- Handles sitewide search.
-- Search for `initSearch` if you want to change how matching works.
-- Search for `initNavToggles` if you want to change submenu open/close behavior.
+`astro.config.mjs`
+- Starlight site config
+- sidebar groups
+- social links
+- deployment-safe site metadata
 
-`_includes/nav-children.html`
-- Recursive sidebar submenu rendering.
-- This is what lets Projects show nested child pages and Blog show posts.
+`src/content.config.ts`
+- docs collection config for Starlight
 
-`_includes/breadcrumbs.html`
-- Controls breadcrumb rendering for nested project pages and blog posts.
+`.github/workflows/deploy.yml`
+- GitHub Pages deployment workflow
 
-`index.md`, `about.md`, `projects.md`, `blog.md`
-- Main content pages.
+## Navigation model
 
-`projects/habit-tracker.md`
-- Main project detail page.
+There are now two navigation systems:
 
-`_posts/`
-- Blog posts.
+1. Landing page navigation
+- defined directly in `src/pages/index.astro`
+- used for Home, Projects, Blog, About, LinkedIn
 
-## Navigation
+2. Starlight docs sidebar
+- configured in `astro.config.mjs`
+- `Projects` autogenerates from `src/content/docs/projects/`
+- `Blog` autogenerates from `src/content/docs/blog/`
 
-Navigation comes from page front matter.
+## Adding content
 
-Use this on top-level pages:
+New project:
+- add a new file under `src/content/docs/projects/`
 
-```yaml
-title: About
-nav_order: 3
-```
+New blog note:
+- add a new file under `src/content/docs/blog/`
 
-Rules:
-- Lower `nav_order` means earlier in the sidebar.
-- Only top-level pages with `nav_order` appear in the main sidebar.
-- Child pages with `parent: Projects` appear inside the Projects submenu.
-- Child pages with `parent: Habit Tracker` appear nested under Habit Tracker automatically.
-- Blog posts appear under the Blog submenu automatically.
-
-Example nested project child:
+Use this frontmatter shape:
 
 ```yaml
-title: API Design
-parent: Habit Tracker
-nav_order: 2
+---
+title: Example Title
+description: Short summary
+editUrl: false
+head: []
+template: doc
+sidebar:
+  hidden: false
+  attrs: {}
+pagefind: true
+draft: false
+---
 ```
 
-## Theme guidance
+## Local development
 
-Current direction:
-- Dark background
-- Neutral blue-gray panels
-- VS Code-like sidebar
-- Blue active nav highlight
+Use Node 22.
 
-Fastest theme changes:
-- Edit colors in `assets/css/style.css`
-- Keep layout changes in `_layouts/default.html`
-- Keep homepage content changes in `_layouts/home.html`
+Recommended:
 
-## Local preview
+1. `nvm use`
+2. `npm install`
+3. `npm run dev`
 
-This repo has two preview paths:
+If you stay on the machine’s older default Node version, Astro 6 will not start.
 
-1. `npm run preview`
-- Recommended for local iteration here.
-- Uses `scripts/preview.mjs`.
-- Mirrors the sidebar, search, breadcrumbs, and project/blog submenu behavior.
+## Animation plan
 
-2. Jekyll / GitHub Pages
-- The site content is still Jekyll-friendly.
-- Local Jekyll preview may require a newer Ruby setup than the system Ruby on this machine.
+When you add the Apple-style scroll sequence later:
+
+- keep it on `src/pages/index.astro`
+- use a separate component if it grows large
+- prefer a single strong pinned section instead of many small gimmicks
+- use reduced-motion fallbacks
 
 ## If you come back later
 
 If you forget where to edit:
-- Structure: `_layouts/`
-- Theme: `assets/css/style.css`
-- Content: markdown files in the repo root, `projects/`, and `_posts/`
+
+- homepage: `src/pages/index.astro`
+- docs sidebar/content: `src/content/docs/`
+- theme: `src/styles/global.css`
+- global site config: `astro.config.mjs`

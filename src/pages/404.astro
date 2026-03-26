@@ -1,0 +1,20 @@
+---
+import MarketingLayout from "../layouts/MarketingLayout.astro";
+import "../styles/global.css";
+---
+
+<MarketingLayout title="Page Not Found | Veer Thiara" description="The requested page could not be found.">
+  <main class="marketing-main" style="min-height: 100vh; display: grid; place-items: center;">
+    <section class="scroll-teaser" style="max-width: 42rem;">
+      <p class="section-label">404</p>
+      <h1 style="margin: 12px 0 18px; font-size: clamp(2.8rem, 8vw, 4.8rem); line-height: 0.95;">Page not found.</h1>
+      <p>
+        The page you requested does not exist or has moved.
+      </p>
+      <div class="hero-actions">
+        <a class="button-primary" href="/">Go Home</a>
+        <a class="button-secondary" href="/projects/">Browse Projects</a>
+      </div>
+    </section>
+  </main>
+</MarketingLayout>

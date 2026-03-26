@@ -1,0 +1,65 @@
+---
+import MarketingLayout from "../layouts/MarketingLayout.astro";
+import "../styles/global.css";
+---
+
+<MarketingLayout title="About | Veer Thiara" description="Background, current direction, and what this site is for.">
+  <div class="marketing-shell">
+    <div class="marketing-background">
+      <span class="marketing-glow marketing-glow-a"></span>
+      <span class="marketing-glow marketing-glow-b"></span>
+      <span class="marketing-grid"></span>
+    </div>
+
+    <header class="marketing-header">
+      <a class="marketing-brand" href="/">
+        <span class="marketing-brand-mark">VT</span>
+        <span class="marketing-brand-copy">
+          <strong>Veer Thiara</strong>
+          <small>Developer portfolio</small>
+        </span>
+      </a>
+
+      <nav class="marketing-nav" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/projects/">Projects</a>
+        <a href="/blog/">Blog</a>
+        <a href="https://www.linkedin.com/in/veerthiara/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </nav>
+    </header>
+
+    <main class="marketing-main">
+      <section class="section-grid">
+        <div class="section-intro">
+          <p class="section-label">About</p>
+          <h1 style="margin: 18px 0; font-size: clamp(2.8rem, 6vw, 4.8rem); line-height: 0.96;">Developer, builder, and systems-minded product engineer.</h1>
+          <p>
+            I’m Veer Thiara, a senior software engineer exploring AI systems, LangGraph,
+            full-stack product development, and local-first architecture.
+          </p>
+          <p>
+            This site is where I document what I am building, how I am structuring the work,
+            and the technical decisions behind each project.
+          </p>
+          <div class="hero-actions">
+            <a class="button-primary" href="/projects/">View Projects</a>
+            <a class="button-secondary" href="https://www.linkedin.com/in/veerthiara/" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="card-grid">
+          <div class="feature-card">
+            <span class="feature-card-label">Current Focus</span>
+            <strong>Practical software with strong documentation</strong>
+            <p>Projects here are meant to evolve from overview pages into deeper implementation notes over time.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-card-label">Preferred Shape</span>
+            <strong>Product-first systems</strong>
+            <p>I care more about building useful software clearly than adding complexity for its own sake.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</MarketingLayout>
