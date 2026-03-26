@@ -23,6 +23,20 @@ const signalCards = [
   { label: "Mode", value: "Architecture and implementation" },
   { label: "Next layer", value: "Scroll-driven landing interactions" }
 ];
+const particles = [
+  { x: "8%", y: "18%", size: "8px", delay: "0s", duration: "14s", color: "var(--marketing-cyan)" },
+  { x: "18%", y: "62%", size: "6px", delay: "2s", duration: "18s", color: "var(--marketing-blue)" },
+  { x: "27%", y: "34%", size: "10px", delay: "1s", duration: "16s", color: "rgba(255, 184, 77, 0.9)" },
+  { x: "36%", y: "78%", size: "7px", delay: "5s", duration: "20s", color: "rgba(242, 112, 156, 0.72)" },
+  { x: "43%", y: "14%", size: "9px", delay: "3s", duration: "17s", color: "var(--marketing-blue)" },
+  { x: "51%", y: "56%", size: "5px", delay: "6s", duration: "15s", color: "var(--marketing-cyan)" },
+  { x: "59%", y: "28%", size: "11px", delay: "2.5s", duration: "19s", color: "rgba(255, 184, 77, 0.85)" },
+  { x: "66%", y: "74%", size: "6px", delay: "4s", duration: "13s", color: "rgba(242, 112, 156, 0.78)" },
+  { x: "74%", y: "12%", size: "7px", delay: "7s", duration: "21s", color: "var(--marketing-cyan)" },
+  { x: "82%", y: "44%", size: "10px", delay: "2s", duration: "18s", color: "var(--marketing-blue)" },
+  { x: "90%", y: "68%", size: "8px", delay: "5.5s", duration: "16s", color: "rgba(255, 184, 77, 0.82)" },
+  { x: "13%", y: "86%", size: "5px", delay: "8s", duration: "22s", color: "var(--marketing-cyan)" }
+];
 ---
 
 <MarketingLayout
@@ -36,6 +50,15 @@ const signalCards = [
       <span class="marketing-glow marketing-glow-c"></span>
       <span class="marketing-aurora marketing-aurora-a"></span>
       <span class="marketing-aurora marketing-aurora-b"></span>
+      <span class="marketing-rings"></span>
+      <div class="marketing-particles" aria-hidden="true">
+        {particles.map((particle) => (
+          <span
+            class="marketing-particle"
+            style={`left:${particle.x};top:${particle.y};width:${particle.size};height:${particle.size};animation-delay:${particle.delay};animation-duration:${particle.duration};--particle-color:${particle.color};`}
+          ></span>
+        ))}
+      </div>
       <span class="marketing-grid"></span>
     </div>
 
