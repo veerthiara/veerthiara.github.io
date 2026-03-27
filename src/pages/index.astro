@@ -2,27 +2,46 @@
 import MarketingLayout from "../layouts/MarketingLayout.astro";
 import "../styles/global.css";
 
-const projectCards = [
+const stack = ["Python", "LangGraph", "FastAPI", "React", "Postgres", "Vision AI"];
+const signalCards = [
+  { label: "Current focus", value: "AI + product engineering" },
+  { label: "Mode", value: "Building and shipping systems" },
+  { label: "Open to", value: "Senior software opportunities" }
+];
+
+const experienceHighlights = [
   {
-    title: "Habit Tracker",
-    href: "/projects/habit-tracker/",
-    body: "Local-first habit tracking with structured product data, AI-assisted summaries, and a path toward vision-based events.",
-    tone: "mint"
+    window: "Recent",
+    role: "Senior Software Engineer",
+    detail: "Building practical software with a product-first lens across backend APIs, AI orchestration, and frontend delivery."
   },
   {
-    title: "Engineering Notes",
-    href: "/blog/",
-    body: "Working notes on MVP scoping, orchestration choices, and how current projects are being shaped over time.",
-    tone: "amber"
+    window: "Core lane",
+    role: "AI Systems Builder",
+    detail: "Designing structured-data workflows where LLMs and automation support real product outcomes instead of demos."
+  },
+  {
+    window: "Always",
+    role: "Systems-minded Developer",
+    detail: "Prioritizing clarity, documentation, and maintainable architecture so projects can scale over time."
   }
 ];
 
-const stack = ["Python", "LangGraph", "FastAPI", "React", "Postgres", "Astro"];
-const signalCards = [
-  { label: "Current focus", value: "Docs-first product builds" },
-  { label: "Mode", value: "Architecture and implementation" },
-  { label: "Next layer", value: "Scroll-driven landing interactions" }
+const hobbyProjects = [
+  {
+    title: "SightLoop Console",
+    subtitle: "formerly Habit Tracker",
+    href: "https://github.com/veerthiara/HabitTracker",
+    body: "Tracks routines, logs events, and layers AI summaries on top of structured data."
+  },
+  {
+    title: "SightLoop Vision",
+    subtitle: "camera + Vision AI",
+    href: "/projects/habit-tracker/",
+    body: "Computer-vision path that detects real-world actions and feeds them back into the Console."
+  }
 ];
+
 const particles = [
   { x: "8%", y: "18%", size: "8px", delay: "0s", duration: "14s", color: "var(--marketing-cyan)" },
   { x: "18%", y: "62%", size: "6px", delay: "2s", duration: "18s", color: "var(--marketing-blue)" },
@@ -51,6 +70,16 @@ const particles = [
       <span class="marketing-aurora marketing-aurora-a"></span>
       <span class="marketing-aurora marketing-aurora-b"></span>
       <span class="marketing-rings"></span>
+      <div class="marketing-dna" aria-hidden="true">
+        <span class="dna-strand dna-strand-a"></span>
+        <span class="dna-strand dna-strand-b"></span>
+        <span class="dna-rung dna-rung-1"></span>
+        <span class="dna-rung dna-rung-2"></span>
+        <span class="dna-rung dna-rung-3"></span>
+        <span class="dna-rung dna-rung-4"></span>
+        <span class="dna-rung dna-rung-5"></span>
+        <span class="dna-rung dna-rung-6"></span>
+      </div>
       <div class="marketing-particles" aria-hidden="true">
         {particles.map((particle) => (
           <span
@@ -82,21 +111,20 @@ const particles = [
     <main class="marketing-main">
       <section class="hero">
         <div class="hero-copy">
-          <p class="hero-eyebrow">Engineering portal</p>
+          <p class="hero-eyebrow">LinkedIn-style snapshot</p>
           <h1>
-            Building
-            <span>practical software</span>,
-            AI systems,
-            and product-first developer tools.
+            Hi, I'm
+            <span>Veer Thiara</span>,
+            a builder focused on software + AI systems.
           </h1>
           <p class="hero-lead">
-            A docs-driven portfolio built around current work, implementation details,
-            architecture notes, and future project growth.
+            This homepage now reflects my professional profile at a glance: experience highlights,
+            current technical focus, and hobby projects I am actively growing.
           </p>
 
           <div class="hero-actions">
-            <a class="button-primary" href="/projects/">Explore Projects</a>
-            <a class="button-secondary" href="/blog/">Read Notes</a>
+            <a class="button-primary" href="https://www.linkedin.com/in/veerthiara/" target="_blank" rel="noreferrer">View LinkedIn</a>
+            <a class="button-secondary" href="/projects/">Explore Projects</a>
           </div>
 
           <ul class="hero-stack" aria-label="Current stack">
@@ -115,24 +143,25 @@ const particles = [
 
         <div class="hero-panel" aria-hidden="true">
           <div class="hero-visual">
-            <div class="hero-orbit">
-              <span class="hero-orbit-ring hero-orbit-ring-a"></span>
-              <span class="hero-orbit-ring hero-orbit-ring-b"></span>
-              <span class="hero-orbit-ring hero-orbit-ring-c"></span>
-              <span class="hero-orbit-core"></span>
-              <span class="hero-orbit-node hero-orbit-node-a"></span>
-              <span class="hero-orbit-node hero-orbit-node-b"></span>
-              <span class="hero-orbit-node hero-orbit-node-c"></span>
+            <div class="hero-profile-block">
+              <div class="hero-profile-image-wrap">
+                <div class="hero-profile-image" role="img" aria-label="Profile image placeholder">VT</div>
+              </div>
+              <div class="hero-profile-copy">
+                <span>Veer Thiara</span>
+                <strong>Senior Software Engineer</strong>
+                <small>Product engineering • AI systems • Full stack delivery</small>
+              </div>
             </div>
 
             <div class="hero-floating-card hero-floating-card-a">
-              <span>Active lane</span>
-              <strong>Projects → docs → notes</strong>
+              <span>Experience</span>
+              <strong>Senior software engineering</strong>
             </div>
 
             <div class="hero-floating-card hero-floating-card-b">
-              <span>System state</span>
-              <strong>Shipping, then polishing</strong>
+              <span>Hobby build</span>
+              <strong>SightLoop Console + Vision</strong>
             </div>
 
             <div class="hero-panel-window">
@@ -167,33 +196,43 @@ const particles = [
 
       <section class="section-grid">
         <div class="section-intro">
-          <p class="section-label">Current Direction</p>
-          <h2>Readable project documentation that can keep growing.</h2>
+          <p class="section-label">Experience</p>
+          <h2>Professional summary inspired by a LinkedIn profile layout.</h2>
           <p>
-            The portfolio is being rebuilt around a cleaner content system so new projects,
-            architecture notes, and deeper implementation pages are easier to add later.
+            A concise overview of my engineering lane: building useful products, designing clear systems,
+            and iterating quickly from idea to shipped software.
           </p>
         </div>
 
         <div class="card-grid">
-          {projectCards.map((card) => (
-            <a class:list={["feature-card", `feature-card-${card.tone}`]} href={card.href}>
-              <span class="feature-card-label">Open</span>
-              <strong>{card.title}</strong>
-              <p>{card.body}</p>
-            </a>
+          {experienceHighlights.map((item) => (
+            <article class="feature-card">
+              <span class="feature-card-label">{item.window}</span>
+              <strong>{item.role}</strong>
+              <p>{item.detail}</p>
+            </article>
           ))}
         </div>
       </section>
 
       <section class="scroll-teaser">
         <div>
-          <p class="section-label">Later Upgrade Path</p>
-          <h2>Homepage motion can become a proper scroll story later.</h2>
+          <p class="section-label">Hobby Projects</p>
+          <h2>Projects I’m actively developing outside core work.</h2>
           <p>
-            This landing page is intentionally structured so a pinned GSAP sequence can be added
-            later without redoing the docs or content architecture.
+            These two projects reflect where I spend extra build time right now: a robust console,
+            and a camera-first Vision AI layer that extends it.
           </p>
+
+          <div class="hobby-project-grid">
+            {hobbyProjects.map((item, index) => (
+              <a class:list={["feature-card", `feature-card-${index === 0 ? "mint" : "amber"}`]} href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel={item.href.startsWith("http") ? "noreferrer" : undefined}>
+                <span class="feature-card-label">{item.subtitle}</span>
+                <strong>{item.title}</strong>
+                <p>{item.body}</p>
+              </a>
+            ))}
+          </div>
         </div>
       </section>
     </main>
